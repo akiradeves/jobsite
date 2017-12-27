@@ -1,0 +1,128 @@
+<div class="container">
+    
+            <div class="col-sm-12 col-md-12 m-b-20">
+                <h2>Find Work</h2>
+                <hr />
+            </div>
+    
+    
+            <div class="row m-t-20">
+    
+                <div class="col-sm-3 col-md-3 custom-align">
+           
+                        <div class="row col-md-12 m-r-40">
+                            <h3>Job Type</h3>
+                            <div class="radio m-t-20">
+                              <label><input [(ngModel)]="job_search_term_type" value="1" type="radio" >Part Time</label>
+                            </div>
+                            <div class="radio">
+                              <label><input [(ngModel)]="job_search_term_type" value="2" type="radio" >Full Time</label>
+                            </div>
+                            <div class="radio">
+                                <label><input [(ngModel)]="job_search_term_type" value="3" type="radio" >I am not sure</label>
+                            </div>
+                            <hr/>				
+                        </div>
+    
+    
+                        <div class="row col-md-12 m-r-40">
+                            <h3>Category</h3>
+                            <select [(ngModel)]="job_search_category" [value]="1" class="form-control">
+                                <option value="1">service</option>
+                                <option value="2">transport</option>
+                                <option value="3">architecture</option>
+                            </select>
+                        <hr/>					  
+                        </div>
+    
+    
+                        <div class="row col-md-12 m-r-40">
+                            <h3>Skills</h3>
+                            <select [(ngModel)]="job_search_skills" [value]="1" class="form-control">
+                                <option value="1">driver</option>
+                                <option value="2">gardener</option>
+                                <option value="3">cleaner</option>
+                            </select>
+                        <hr/>					  
+                        </div>
+    
+    
+                        <div class="row col-md-12 m-r-40">
+                             <h3>Salary</h3>
+                             <h4>Monthly</h4>
+                            <div class="input-group">
+                                <span class="input-group-addon">$</span>
+                                <input [(ngModel)]="job_search_salary_monthly" type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                                <span class="input-group-addon">.00</span>
+                            </div>
+                             <h4>Fixed</h4>
+                            <div class="input-group">
+                                <span class="input-group-addon">$</span>
+                                <input [(ngModel)]="job_search_salary_fixed" type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                                <span class="input-group-addon">.00</span>
+                            </div>
+                            <hr/>
+                        </div>
+
+                </div>
+    
+                <div class="col-sm-9 col-md-9 ">
+    
+                        <div class="panel panel-default">
+    
+                            <div class="panel-heading">
+                                <div class="input-group" id="adv-search">
+                                    <input [(ngModel)]="job_search_keyword" type="text" class="form-control" placeholder="Search for Jobs" />
+                                    <div class="input-group-btn">
+                                        <div class="btn-group" role="group">
+                                            <button (click)="SearchJobs()" type="button" class="btn btn-primary">
+                                                  <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                            </button>
+                                        </div>
+                                      </div>
+                                </div>
+                            </div>
+    
+                            <div>
+                                <div class="job_post_container">
+                                    <p>{{number_of_search_result}} Results</p>
+                                    <hr class="m-t-15"  />	
+                                </div>
+                                <div *ngFor="let job of jobsData" class="job_post_container">
+                                    <a  (click)="ShowJobDetail(job)"><h4>{{job.job_title}}</h4></a>
+                                    <p class="job_main_items">
+                                        <b>{{job.payment_type}} &nbsp;&nbsp;|&nbsp;&nbsp;</b> 
+                                        <b>{{job.job_price}} &nbsp;&nbsp;|&nbsp;&nbsp;</b>
+                                        <span>{{job.job_posted_time}} &nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                                        <span>30 days left &nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                                         <span>{{job.number_of_proposals}} Quotes</span>
+                                    </p>
+                                    <p class="job_description_font m-t-15">
+                                        {{job.job_description}}
+                                    </p>
+                                    <p class="job_skills_font">
+                                        <span>web development &nbsp;&nbsp;&nbsp;&nbsp;</span> 
+                                        <span>security officer &nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                        <span>coding &nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                        <span>programming &nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                    </p>
+                                    <p>
+                                        <img src="../../../assets/img/logo1.jpg" class="company_logo_class" />		
+                                        <span>Rushydro &nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                                        <span>Russia&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                                        <span>24 hired</span>
+                                        <button class="btn-primary" style="text-align: right;">Apply</button>
+                                    </p>
+                                    <hr/>
+                                </div>
+
+                            </div>
+    
+        
+                        </div>
+                
+                </div>
+    
+            </div>
+    
+        </div>

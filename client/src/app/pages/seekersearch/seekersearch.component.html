@@ -1,0 +1,140 @@
+<div class="container">
+    
+            <div class="col-sm-12 col-md-12 m-b-20">
+                <h2>Find Seeker</h2>
+                <hr />
+            </div>
+    
+    
+            <div class="row m-t-20">
+    
+                <div class="col-sm-3 col-md-3 custom-align">
+                        <div class="row col-md-12 m-r-40">
+    
+                            <h3>Seeker Type</h3>
+                            <div class="radio m-t-20">
+                              <label><input [(ngModel)]="seeker_search_type" value="1" type="radio">Seeker1</label>
+                            </div>
+                            <div class="radio m-t-20">
+                              <label><input [(ngModel)]="seeker_search_type" value="2" type="radio">Seeker2</label>
+                            </div>
+                            <div class="radio m-t-20">
+                              <label><input [(ngModel)]="seeker_search_type" value="3" type="radio">Seeker3</label>
+                            </div>
+                            <hr/>				
+                        </div>
+    
+    
+                        <div class="row col-md-12 m-r-40">
+                            <h3>Category</h3>
+                            <select [(ngModel)]="seeker_search_category" [value]="1" class="form-control" id="sel1">
+                                <option value="1">service</option>
+                                <option value="2">transport</option>
+                                <option value="3">architecture</option>
+                            </select>
+                        <hr/>					  
+                        </div>
+    
+    
+                        <div class="row col-md-12 m-r-40">
+                            <h3>Skills</h3>
+                            <select [(ngModel)]="seeker_search_skills" class="form-control" id="sel1">
+                                <option value="1">driver</option>
+                                <option value="2">gardener</option>
+                                <option value="3">cleaner</option>
+                            </select>
+                        <hr/>					  
+                        </div>
+    
+    
+                        <div class="row col-md-12 m-r-40">
+                             <h3>Salary</h3>
+                             <h4>Monthly</h4>
+                            <div class="input-group">
+                                  <span class="input-group-addon">$</span>
+                                  <input [(ngModel)]="seeker_search_salary_monthly" type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                                  <span class="input-group-addon">.00</span>
+                            </div>
+                             <h4>Fixed</h4>
+                            <div class="input-group">
+                                <span class="input-group-addon">$</span>
+                                <input [(ngModel)]="seeker_search_salary_fixed" type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                                <span class="input-group-addon">.00</span>
+                            </div>
+                            <hr/>
+                        </div>
+    
+    
+                </div>
+    
+                <div class="col-sm-9 col-md-9 ">
+    
+    
+                    <div class="panel panel-default">
+    
+                        <div class="panel-heading">
+                            <div class="input-group" id="adv-search">
+                                <input type="text" class="form-control" placeholder="Search for Jobs" />
+                                <div class="input-group-btn">
+                                    <div class="btn-group" role="group">
+                                        <button (click)="SearchSeekers()" type="button" class="btn btn-primary">
+                                              <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                        </button>
+                                    </div>
+                                  </div>
+                            </div>
+                        </div>
+    
+                        <div>
+                            <div class="job_post_container">
+                                <p >{{number_of_search_result}} Results</p>
+                                <hr />	
+                            </div>
+    
+    
+    
+                            <div *ngFor="let seeker of seekersData" class="job_post_container">
+                                <div class="row">
+                                    <div class="col-md-3 col-xs-12" style="text-align: center;">
+                                        <img src="../../../assets/img/seeker.png" class="seeker_avatar">
+                                    </div>
+    
+                                    <div class="col-md-6 col-xs-12 col-sm-9">
+                                        <p class="pro-name">{{seeker.seeker_name}}</p>
+                                        <span class="pro-title">{{seeker.seeker_title}}</span>
+                                        <div class="pro-skills ">
+                                            {{seeker.seeker_overview}}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-12">
+                                        <div class="  col-xs-5 col-sm-12 col-md-10 p-l-0 m-l-0" style="text-align: center;">
+                                            <button type="button" class="main-button ">View Details</button><br/>										
+                                        </div>
+    
+                                        <div class="col-xs-2 "></div>
+    
+                                        <div class="  col-xs-5 col-sm-12 col-md-10 p-l-0 m-l-0" style="text-align: center;">
+                                            <button type="button" class="main-button ">Invite</button>										
+                                        </div>
+    
+                                    </div>								
+                                </div>
+                                <hr />
+                            </div>
+    
+    
+                    
+                
+    
+                        </div>
+    
+                    </div>					
+    
+                    
+    
+                </div>
+    
+    
+            </div>
+    
+        </div>

@@ -1,0 +1,167 @@
+<div *ngIf="reg_status == 0" class="container" >
+	<div class="row" style="text-align: center;">
+		<div class="col-md-2"></div>
+		<div class="col-xs-12 col-sm-12 col-md-8 well well-sm">
+			<legend><a href="http://www.jquery2dotnet.com"><i class="glyphicon glyphicon-globe"></i></a> Sign up!</legend>
+			<form [formGroup]="form1" (ngSubmit)="Form1Complete()" class="form">
+				<div class="row">
+					<div class="col-xs-6 col-md-6">
+						<input class="form-control" [formControl]="first_name" placeholder="First Name" type="text"
+							required autofocus />
+					</div>
+					<div class="col-xs-6 col-md-6">
+						<input class="form-control" [formControl]="last_name" placeholder="Last Name" type="text" required />
+					</div>
+				</div>
+				<input class="form-control" [formControl]="email" placeholder="Your Email" type="email" />
+				<input class="form-control" [formControl]="confirm_email" placeholder="Re-enter Email" type="email" />
+				<input class="form-control" [formControl]="password" placeholder="New Password" type="password" />
+				<label class="radio-inline">
+					<input type="radio" [formControl]="user_type" [value]="1"  />
+					Job Seeker
+				</label>
+				<label class="radio-inline">
+					<input type="radio" [formControl]="user_type" [value]="2"  />
+					Employer
+				</label>
+				<br />
+				<br />
+				<button class="btn btn-lg btn-primary btn-block" type="submit">
+					Continue</button>
+			</form>
+		</div>
+		<div class="col-md-2"></div>
+	</div>
+</div>
+
+<div *ngIf="reg_status == 1" class="container">
+	<div class="row" style="text-align: center;">
+		<div class="col-md-2"></div>
+		<div class="col-xs-12 col-sm-12 col-md-8 well well-sm p-l-20 p-r-20">
+			<legend>
+			  <a href="http://www.jquery2dotnet.com">
+				<i class="glyphicon glyphicon-globe"></i>
+			  </a> Job Seeker
+			</legend>
+
+			<form [formGroup]="form2" (ngSubmit)="Form2Complete()" class="form">
+			  <div class="row">
+				<img class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120" alt="">            
+		
+			  </div>
+
+			  <div class="form-group">
+				  <label >Address</label>
+				  <input type="text" class="form-control" [formControl]="form2_address"  placeholder="1234 Main St">
+
+			  </div>
+
+			  <div class="row">
+
+					<div class="col-md-6 mb-3">
+						<label>City</label>
+						<input type="text" class="form-control" [formControl]="form2_city" placeholder="City" required placeholder="Please provide a valid city.">
+					</div>
+					<div class="col-md-3 mb-3">
+						<label>State</label>
+						<input type="text" class="form-control" [formControl]="form2_state" placeholder="State" required placeholder="Please provide a valid state.">
+					</div>
+					<div class="col-md-3 mb-3">
+						<label >Zip</label>
+						<input type="text" class="form-control" [formControl]="form2_zip" placeholder="Zip" required placeholder="Please provide a valid zip.">
+					</div>
+			  </div>
+			  <div class="row">
+					<div class="col-md-6">
+						<label >Category</label>
+						<select [formControl]="form2_category" [value]="1" class="form-control" >
+							<option value="1">service</option>
+							<option value="2">transport</option>
+							<option value="3">architecture</option>
+						</select>
+		
+					</div>
+					<div class="col-md-6">
+						<label>  Skills</label>          
+						<input [formControl]="form2_skills" class="form-control" name="skillset" placeholder="skills" type="text" />
+					</div>                  
+			  </div>
+			  <div class="row">
+					<div class="col-md-6">
+						<label>  Job Seeker Type</label>   
+						<select [formControl]="form2_seeker_type" [value]="1" class="form-control form-control-lg">
+							<option value="1">Individual</option>
+							<option value="2">Agency</option>
+							<option value="3">Foreign Company</option>
+						</select>   
+					</div>
+					<div class="col-md-6">
+						<label >Rate</label>
+						<div class="input-group">
+							<span class="input-group-addon">$</span>
+							<input [formControl]="form2_rate" type="number" class="form-control" aria-label="Amount (to the nearest dollar)">
+							<span class="input-group-addon">.00</span>
+						</div>
+					</div>
+			  </div>
+			  <div class="fileupload fileupload-new" data-provides="fileupload">
+				  <label > Upload your resume</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+				  <span class="btn btn-primary btn-file">
+						<span class="fileupload-new">Select Resume</span>
+						<span class="fileupload-exists">Change</span>
+						<input [formControl]="form2_resume_file" type="file" />
+					</span>
+				  <span class="fileupload-preview"></span>
+				  <a href="#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none">×</a>
+			  </div>
+			  <button class="btn  btn-primary btn-block m-t-20" type="submit">
+				  Finish
+			  </button>
+			</form>
+		</div>
+		<div class="col-md-2"></div>
+	</div>
+</div>
+
+
+<div *ngIf="reg_status == 2" class="container">
+	<div class="row" style="text-align: center;">
+		<div class="col-md-2"></div>
+
+		<div class="col-xs-12 col-sm-12 col-md-8 well well-sm p-l-50 p-r-50">
+			<legend>
+			  <a href="http://www.jquery2dotnet.com">
+			  <i class="glyphicon glyphicon-globe"></i>
+			  </a> Employer
+			</legend>
+
+			<form [formGroup]="form3" (ngSubmit)="Form3Complete()" class="form">
+
+			  <div class="row">
+				  <div class="center-block col-md-5">
+					<img class="profile-img"
+					  src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120" alt="">
+					<p>You Company Logo here</p>
+				  </div>
+
+				  <dir class="col-md-7 p-t-10 p-r-50">
+					<input class="form-control m-b-20" [formControl]="form3_company_name" placeholder="Company Name" type="text" />
+
+					<div class="input-group">
+					  <span class="input-group-addon">https://</span>
+					  <input class="form-control " [formControl]="form3_company_link" placeholder="You Company Link" type="text" />
+					</div>
+
+				  </dir>
+			  </div>
+			  <textarea class="form-control"  [formControl]="form3_company_overview" placeholder="Company Overview" rows="3" > 
+			  </textarea>                
+
+			  <button class="btn btn-primary btn-block" type="submit">
+				  Finish
+			  </button>
+			</form>
+		</div>
+		<div class="col-md-2"></div>
+	</div>
+</div>

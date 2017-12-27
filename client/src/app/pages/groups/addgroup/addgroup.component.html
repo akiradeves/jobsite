@@ -1,0 +1,32 @@
+<flash-messages></flash-messages>
+<div class="navigation text-center">
+	<div class="container">
+		<div class="row">
+			<div class="col-xl-1 col-lg-1 col-md-1 col-sm-1 col-1">
+				<a [routerLink]="['/pages/contacts']"><i class="fa fa-bars" aria-hidden="true"></i></a>
+			</div>
+			<div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-9">
+				<a href="#">Add Group</a>
+			</div>
+			<div class="col-xl-1 col-lg-1 col-md-1 col-sm-1 col-1">
+				<a [routerLink]="['/pages/groups']"><i class="fa fa-users" aria-hidden="true"></i></a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="contact-info mt-4">
+	<div class="container">
+		<div class="row">
+			<div class="col-xl-6 offset-xl-3 col-lg-12 col-md-12 col-sm-12 col-12">
+				<form [formGroup]="form" (ngSubmit)="onSubmit(form.value)" class="form-horizontal">
+					<div class="group-name">
+						<label for="inputname">Group Name</label>
+						<input type="text" [formControl]="name" type="text" class="form-control" id="inputname" placeholder="Default">
+					</div>
+					<button type="submit" class="btn btn-blue btn-block mt-5">Create Group</button>
+				</form>				
+			</div>
+		</div>
+	</div>
+</div>

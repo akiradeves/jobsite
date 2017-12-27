@@ -1,0 +1,94 @@
+<flash-messages></flash-messages>
+<div class="widgets">
+    <div class="row">
+        <ba-card title="Basic Example" baCardClass="with-scroll" class="data-table-container">
+            <div class="row">
+                <div class="col-sm-2">
+                    <label class="label-control">Rows on page</label>
+                    <select class="form-control input-sm" [(ngModel)]="rowsOnPage">
+                    <option [ngValue]="5">5</option>
+                    <option [ngValue]="10">10</option>
+                    <option [ngValue]="15">15</option>
+                </select>
+                </div>
+                <div class="col-sm-4">
+                    <div class="row">
+                        <label class="col-sm-12 label-control">Sort by</label>
+                    </div>
+                    <div class="row">
+                        <div class="offset-sm-1 col-sm-5">
+                            <div class="row">
+                                <select class="form-control input-sm" [(ngModel)]="sortBy">
+                                    <option ngValue="fist_name">First Name</option>
+                                    <option ngValue="last_name">Last Name</option>
+                                    <option ngValue="email">Email</option>
+                                    <option ngValue="organization">Organization</option>
+                                    <option ngValue="role">Role</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="offset-sm-1 col-sm-5">
+                            <div class="row">
+                                <select class="form-control input-sm" [(ngModel)]="sortOrder">
+                                    <option ngValue="asc">Ascending</option>
+                                    <option ngValue="desc">Descending</option>
+                                    <option ngValue="badValue">Bad value</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">User information</div>
+
+                <table class="table table-striped" [mfData]="data | listusersfilter : filterQuery" #mf="mfDataTable" [mfRowsOnPage]="rowsOnPage" [(mfSortBy)]="sortBy" [(mfSortOrder)]="sortOrder">
+                    <thead>
+                        <tr>
+                            <th style="width: 20%"></th>
+                            <th style="width: 20%">
+                                <mfDefaultSorter by="email">Email</mfDefaultSorter>
+                            </th>
+                            <th style="width: 20%">
+                                <mfDefaultSorter by="first_name">Name</mfDefaultSorter>
+                            </th>
+                            <th style="width: 20%">
+                                <mfDefaultSorter by="organization">Organization</mfDefaultSorter>
+                            </th>
+                            <th style="width: 20%">
+                                <mfDefaultSorter by="role">Role</mfDefaultSorter>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th colspan="1">
+                                <button [routerLink]="['/pages/users/add']" class="btn btn-default">Add a user</button>
+                            </th>
+                            <th colspan="5">
+                                <input class="form-control" [(ngModel)]="filterQuery" placeholder="Search..." />
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of mf.data">
+                            <td>
+                                <button [routerLink]="['/pages/users/edit', item._id]" class="btn btn-success"><i class="icon icon ion-edit"></i></button>
+                                <button (click)="remove(item)" class="btn btn-danger"><i class="icon icon ion-trash-a"></i></button>
+                            </td>
+                            <td>{{item.email}}</td>
+                            <td>{{item.first_name + ' ' + item.last_name}}</td>
+                            <td>{{item.organization}}</td>
+                            <td>{{item.role}}</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="6">
+                                <mfBootstrapPaginator [rowsOnPageSet]="[5,10,15]"></mfBootstrapPaginator>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </ba-card>
+    </div>
+</div>

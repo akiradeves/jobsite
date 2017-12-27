@@ -1,0 +1,18 @@
+
+.custom-navbar {
+    margin: 0px;
+    background-color: #2d9ee0;
+    height: 90px;
+
+}
+.navbar-font-custom{
+    padding-top: 20px;
+    font-size: 22px; 
+    color: white !important;
+} 
+.logo-custom{
+     margin: 0px;
+     padding: 0px;
+     max-width: 100px;
+}
+

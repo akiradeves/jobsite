@@ -1,0 +1,40 @@
+<flash-messages></flash-messages>
+<div class="work-container">
+	<div class="row">
+		<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+			<div class="text-center px-3">
+				
+				<h1 class="mt-4">Contact</h1>
+				<p>Tell us a bit more about how we can help you</p>
+				<div class="divider mt-4"></div>
+			</div>
+
+			<div class="login-form mt-5 px-3">
+				<form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+					<div class="form-group" [ngClass]="{'has-error': (!first_name.valid && first_name.touched), 'has-success': (first_name.valid && first_name.touched)}">
+						<input [formControl]="first_name" type="text" class="form-control form-control-lg" id="first-name" aria-describedby="first-name" placeholder="First Name *">
+					</div>
+					<div class="form-group" [ngClass]="{'has-error': (!last_name.valid && last_name.touched), 'has-success': (last_name.valid && last_name.touched)}">
+						<input [formControl]="last_name" type="text" class="form-control form-control-lg" id="last-name" aria-describedby="last-name" placeholder="Last Name *">
+					</div>
+					<div class="form-group" [ngClass]="{'has-error': (!email.valid && email.touched), 'has-success': (email.valid && email.touched)}">
+						<input [formControl]="email" type="email" class="form-control form-control-lg" id="email" aria-describedby="email" placeholder="Email Address *" email>
+					</div>
+					<div class="form-group">
+						<input [formControl]="phone" type="text" class="form-control form-control-lg" id="phone" aria-describedby="phone" placeholder="Phone Number">
+					</div>
+
+					<div class="form-group" [ngClass]="{'has-error': (!message.valid && message.touched), 'has-success': (message.valid && message.touched)}">
+						<textarea [formControl]="message" class="form-control" id="message" rows="5" placeholder="Message *"></textarea>
+					</div>
+
+					
+					<button type="submit" class="btn btn-primary btn-lg mt-4 mx-auto d-block">Send</button>
+
+				</form>
+
+
+			</div>
+		</div>
+	</div>	
+</div>

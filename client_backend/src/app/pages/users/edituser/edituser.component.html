@@ -1,0 +1,62 @@
+<div class="widgets">
+  <div class="row">
+  	<div class="col-md-12">
+	  	<ba-card cardTitle="Edit user" baCardClass="with-scroll">
+	      <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)" class="form-horizontal">
+			  <div class="form-group row">
+			    <label for="inputfirstname" class="col-sm-2 form-control-label">First name</label>
+			    <div class="col-sm-10" [ngClass]="{'has-error': (!first_name.valid && first_name.touched), 'has-success': (first_name.valid && first_name.touched)}">
+			      <input [formControl]="first_name" type="text" class="form-control" id="inputfirstname" [ngModel]="user.first_name" placeholder="John">
+			    </div>
+			  </div>
+			  <div class="form-group row">
+			    <label for="inputlastname" class="col-sm-2 form-control-label">Last name</label>
+			    <div class="col-sm-10" [ngClass]="{'has-error': (!last_name.valid && last_name.touched), 'has-success': (last_name.valid && last_name.touched)}">
+			      <input [formControl]="last_name" type="text" class="form-control" id="inputlastname" [ngModel]="user.last_name" placeholder="Smith">
+			    </div>
+			  </div>
+			  <div class="form-group row">
+			    <label for="inputemail" class="col-sm-2 form-control-label">Email</label>
+			    <div class="col-sm-10" [ngClass]="{'has-error': (!email.valid && email.touched), 'has-success': (email.valid && email.touched)}">
+			      <input [formControl]="email" type="email" class="form-control" id="inputemail" [ngModel]="user.email" placeholder="johnmoe@email.com" email>
+			    </div>
+			  </div>
+			  <div class="form-group row">
+			    <label for="inputorganization" class="col-sm-2 form-control-label">Organization</label>
+			    <div class="col-sm-10" [ngClass]="{'has-error': (!organization.valid && organization.touched), 'has-success': (organization.valid && organization.touched)}">
+			      <input [formControl]="organization" type="text" class="form-control" id="inputorganization" [ngModel]="user.organization" placeholder="Organization">
+			    </div>
+			  </div>
+			  <div class="form-group row">
+			    <label for="inputPassword" class="col-sm-2 form-control-label">Password</label>
+			    <div class="col-sm-10" [ngClass]="{'has-error': ((!password.valid && (password.touched || confirm_password.touched)) || (password.value != confirm_password.value)), 'has-success': (password.valid)}">
+			      <input [formControl]="password" type="password" class="form-control" id="inputPassword" placeholder="Password">
+			    </div>
+			  </div>
+			  <div class="form-group row">
+			    <label for="inputPasswordConfirm" class="col-sm-2 form-control-label">Confirm Password</label>
+			    <div class="col-sm-10" [ngClass]="{'has-error': ((!confirm_password.valid && (password.touched || confirm_password.touched)) || (password.value != confirm_password.value)), 'has-success': (confirm_password.valid)}">
+			      <input [formControl]="confirm_password" type="password" class="form-control" id="inputPasswordConfirm" placeholder="Confirm Password">
+			    </div>
+			  </div>
+			  <div class="form-group row">
+			    <label for="selectRole" class="col-sm-2 form-control-label">Role</label>
+			    <div class="col-sm-10" [ngClass]="{'has-error': (!role.valid && role.touched), 'has-success': (role.valid && role.touched)}">
+			      <select [formControl]="role" class="form-control" id="selectRole" [ngModel]="user.role">
+					    <option>Normal</option>
+					    <option>Admin</option>
+					  </select>
+			    </div>
+			  </div>
+
+			  <div class="form-group row">
+			    <div class="offset-sm-2 col-sm-10">
+			      <button type="submit" class="btn btn-warning">Save</button>
+			    </div>
+			  </div>
+			</form>
+	    </ba-card>
+  	</div>
+  </div>
+</div>
+<flash-messages></flash-messages>

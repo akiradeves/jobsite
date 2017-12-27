@@ -1,0 +1,12 @@
+/* Latest compiled and minified CSS included as External Resource*/
+
+/* Optional theme */
+@import url('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css');
+
+body {
+    margin: 10px;
+}
+
+.input-group .form-control {
+    margin: 0px !important;
+}

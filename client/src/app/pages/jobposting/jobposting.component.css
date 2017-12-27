@@ -1,0 +1,14 @@
+body { padding-top:30px; }
+.form-control { margin-bottom: 10px; }
+
+.work_container{
+	margin: 40px 20% 40px 20%;
+}
+legend{
+	height: 60px;
+	padding: 10px
+}
+.white_space{
+	margin: 0px;
+	background-color: #ffffff;
+}

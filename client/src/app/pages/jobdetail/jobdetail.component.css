@@ -1,0 +1,8 @@
+body { padding-top:30px; }
+.form-control { margin-bottom: 10px; }
+.border-right-grey-1 {
+    border-right: solid grey 1px;
+}
+.border-left-grey-1 {
+    border-left: solid grey 1px;
+}

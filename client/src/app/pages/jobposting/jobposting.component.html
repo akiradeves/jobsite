@@ -1,0 +1,126 @@
+<div *ngIf="post_status == 0" class="work_container">
+    <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3>Step1 for Job Posting</h3>
+            </div>
+  
+            <div class="panel-body">
+              <form [formGroup]="form1" (ngSubmit)="Form1Complete()" class="form">
+  
+                <div class="m-t-15">
+                  <label > Tell us what type of work you want done </label>
+                  <input [formControl]="job_type" class="form-control" placeholder="Full stack web development" type="text" />                
+                </div>
+  
+                <div class="m-t-30">
+                  <label > Choose a category and subcategory </label>
+                  <select [formControl]="job_category" [value]="1" class="form-control form-control-lg">
+                      <option value="1">Web development</option>
+                      <option value="2">Mobile Development</option>
+                      <option value="3">Article Writer</option>
+                  </select>   
+                </div>
+  
+                <div class="m-t-30">
+                  <label > Name your job posting </label>
+                  <input [formControl]="job_title" class="form-control" placeholder="Web developer" type="text" />
+                </div>
+                
+                <div class="m-t-30">
+                  <label > Describe the work to be done </label>
+                  <textarea [formControl]="job_description" class="form-control" placeholder="EXAMPLE: Looking for an experienced front end developer for a 3-6 month project. You will work with a team of international experts for this project." rows="7" cols="50" >
+                  </textarea>
+                </div>
+                <button class="btn  btn-primary btn-block" type="submit">
+                  Continue
+                </button>
+  
+              </form>
+            </div>
+    </div>
+  </div>
+  
+  <div *ngIf="post_status == 1" class="work_container">
+    <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3>Step2 for Job Posting</h3>
+            </div>
+            <div class="panel-body">
+              <form [formGroup]="form2" (ngSubmit)="Form2Complete()" class="form">
+                
+                <div class="m-t-30">                
+                    <label > Enter skills needed(optional) </label>
+                    <input [formControl]="job_required_skills" class="form-control"  placeholder="Type Here" type="text" />                  
+           
+  
+                </div>
+  
+                <div class="row m-t-30">
+  
+                  <div class="col-md-6">
+                    <label > What time commitment is required for this job? </label><br/>
+                    <input [formControl]="job_required_time" [value] = "1" type="radio" />
+                    More than 30hrs/week<br/>
+                    <input [formControl]="job_required_time" [value] = "2" type="radio"/>
+                    Less than 30hrs/week<br/>
+                    <input [formControl]="job_required_time" [value] = "3" type="radio" />
+                    I don't know yet<br/>
+  
+                  </div>
+                  <div class="col-md-6">
+                    <label > What type of project do you have? </label><br/>
+                    <input [formControl]="job_term_type" [value] = "1" type="radio" />
+                    One-time project<br/>
+                    <input [formControl]="job_term_type" [value] = "2" type="radio"/>
+                    Ongoing project<br/>
+                    <input [formControl]="job_term_type" [value] = "3" type="radio"/>
+                    I am not sure<br/>
+                  </div>
+                </div>
+   
+  
+                <div class="row m-t-30">
+  
+                  <div class="col-md-6">
+                    <label > How would you like to pay </label>
+                    <select [formControl]="payment_type" [value] = "1" class="form-control form-control-lg">
+                        <option value="1">Pay by the hour</option>
+                        <option value="2">Pay by fixed rate</option>
+                    </select>
+                    
+                  </div>
+                  <div class="col-md-6">
+                    <label > Desired Experience Level </label>
+                    <select [formControl]="seeker_exp_level" [value] = "1" class="form-control form-control-lg">
+                        <option value="1">Entry Level</option>
+                        <option value="2">Intermediate</option>
+                        <option value="3">Expert</option>
+                    </select>
+                  </div>
+  
+                </div>
+                <div class="row m-t-30">
+                  <div class="col-md-6">
+                    <label > How long do you expect this job to last </label>
+                    <select [formControl]="job_expect_time" [value] = "1" class="form-control form-control-lg">
+                        <option value="1">More than 6 months</option>
+                        <option value="2">3 to 6 months</option>
+                        <option value="3">1 to 3 months</option>
+                        <option value="4">Less than 1 month</option>
+                        <option value="5">Less than 1 week</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6">
+  
+                    <label > Attachments </label>
+                    <input [formControl]="job_attachment" class="form-control" placeholder="Attachment" type="file" />
+  
+                  </div>
+                </div>
+                <button class="btn btn-primary btn-block" type="submit">
+                  Post Job
+                </button>
+              </form>
+            </div>
+    </div>
+  </div>
